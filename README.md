@@ -1,0 +1,2 @@
+# scudoku
+Sudoku in Scala
