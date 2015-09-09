@@ -1,0 +1,17 @@
+.metadata
+caches
+/workspace/.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/_0.fdt
+/workspace/.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/_0.fdx
+/workspace/.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/_0.fnm
+/workspace/.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/_0.frq
+/workspace/.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/_0.nrm
+/workspace/.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/_0.prx
+/workspace/.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/_0.tii
+/workspace/.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/_0.tis
+/workspace/.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/segments.gen
+/workspace/.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/segments_1
+/workspace/judoku/target/classes/judoku/*.class
+/workspace/judoku/target/classes/judoku/checkers/*.class
+/workspace/judoku/target/classes/judoku/data/*.class
+/workspace/judoku/target/classes/judoku/solvers/*.class
+/workspace/judoku/target/test-classes/judoku/test/*.class
