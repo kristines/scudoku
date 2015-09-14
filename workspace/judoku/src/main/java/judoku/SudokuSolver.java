@@ -7,12 +7,12 @@ import judoku.checkers.*;
 import judoku.data.Grid;
 import judoku.solvers.*;
 
-public class SodukoSolver {
+public class SudokuSolver {
 	private String gridAsString = null;
 	private Grid grid = null;
 	private int numSolveSteps = 0;
 	
-	public SodukoSolver(String solveThisGrid) {
+	public SudokuSolver(String solveThisGrid) {
 		this.gridAsString = solveThisGrid;
 		this.grid = new Grid();
 
@@ -133,7 +133,7 @@ public class SodukoSolver {
         	".8..5.9.." +
         	".4...6..1" ;
        
-		SodukoSolver sodukoSolver = new SodukoSolver(sampleGrid);
+		SudokuSolver sodukoSolver = new SudokuSolver(sampleGrid);
 		
 		sodukoSolver.solve();
 		sodukoSolver.printResult();
