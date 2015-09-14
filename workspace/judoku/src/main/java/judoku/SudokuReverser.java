@@ -7,7 +7,7 @@ import judoku.checkers.*;
 import judoku.data.Grid;
 import judoku.solvers.*;
 
-public class SodukoReverser {
+public class SudokuReverser {
 	public static void main(String[] args) throws Throwable {
 		try {
 			// '.' is empty cell
