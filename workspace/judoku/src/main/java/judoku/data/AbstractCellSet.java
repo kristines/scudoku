@@ -18,7 +18,6 @@ public abstract class AbstractCellSet implements Observer {
 	protected abstract String getName();
 	
 	// observer to cell fix
-//ported	
 	@Override
 	public void update (Observable obs, Object obj) {
 		if (obs== null) return;
@@ -28,7 +27,6 @@ public abstract class AbstractCellSet implements Observer {
 	}
 
 	// delete a value from all potential values in all cells of the cell set
-//ported	
 	private void deletePotentialValue(OneToNine valueToDelete) {
 		for (Cell cell: cells) {
 			cell.deletePotentialValue(valueToDelete);
@@ -42,20 +40,17 @@ public abstract class AbstractCellSet implements Observer {
 	}
 
 	// add a cell to the set
-//ported	
 	public void addCell(Cell cell) {
 		cells.add(cell);
 		cell.addObserver(this);
 	}
 
 	// does this cell set contain the cell c?
-//ported	
 	public boolean contains(Cell c) {
 		return getCells().contains(c);
 	}
 
 	// get all cells in this set
-//ported	
 	public List<Cell> getCells() {
 		return cells;
 	}

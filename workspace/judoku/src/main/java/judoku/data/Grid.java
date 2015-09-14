@@ -19,7 +19,7 @@ public class Grid implements Observer {
     // all cells in the grid
     private Cell[]   cells   = new Cell[NINE*NINE];
 
-    // number of cells fixed
+    // number of cells which are fix already
     private int numOfCellsFixed = 0;
 
     // helper map and cell id array
@@ -35,7 +35,7 @@ public class Grid implements Observer {
 	      {57,58,59, 66,67,68, 75,76,77},
 	      {60,61,62, 69,70,71, 78,79,80} };
 
-	public Grid() {
+    public Grid() {
 		// construct the lines, columns and blocks
         for (int l=0; l<lines.length;   l++)   lines[l] = new   Line(l);
         for (int c=0; c<columns.length; c++) columns[c] = new Column(c);
@@ -180,7 +180,7 @@ public class Grid implements Observer {
 			   Set<OneToNine> orgPotentialValues = orgCell.getPotentialValues();
 			   for (OneToNine o2n: OneToNine.values()) {
 				   if (!orgPotentialValues.contains(o2n)) {
-					   cloneCell.deleteValue(o2n);
+					   cloneCell.deletePotentialValue(o2n);
 				   }
 			   }
 		   }

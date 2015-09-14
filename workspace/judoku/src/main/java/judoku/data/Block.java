@@ -1,6 +1,7 @@
 package judoku.data;
 
 public class Block extends AbstractCellSet {
+
 	public Block(int id) {
 		super(id);
 	}

@@ -44,15 +44,14 @@ public class LastPotentialValueInBlockOrLineOrColumn implements ISolvingAlgorith
 						cellWithValueFound = c;
 //						System.out.println("Found pot. value : " + value + " in cell " + c.getId());
 					}
-					// ... else value has been found before, no not interesting
+					// ... else value has been found before, so not interesting
 					else {
 						foundTwiceOrMore = true;
 //						System.out.println("Found pot. value : " + value + " twice (also in " + c.getId());
 					}
 				}
 			}
-			// if we have found a cell inside the block/line/column which is the only cell with this
-			//    value as a potential value, then fix it
+			// if we have found a cell inside the block/line/column which is the only cell with this potential value, then fix it
 			if (!(foundTwiceOrMore) && (cellWithValueFound!=null)) {
 				cellWithValueFound.setValue(value);
 			}

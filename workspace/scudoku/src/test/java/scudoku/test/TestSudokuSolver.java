@@ -1,4 +1,4 @@
-package judoku.test;
+package scudoku.test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertEquals;
@@ -8,23 +8,23 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
-import judoku.Debug;
+import scudoku.Debug$;
 
 public class TestSudokuSolver {
 	@Before
 	public void initializeDebug() {
 		// show cell contents in Debug mode - include id and potential values
-		Debug.CELL_DEBUG = false;
+		Debug$.MODULE$.CELL_DEBUG_$eq(false);
 		// show grid in Debug mode - show lines, cols, blocks separate
-		Debug.GRID_DEBUG = false;
+		Debug$.MODULE$.GRID_DEBUG_$eq(false);
 		// show notifications in Debug mode
-		Debug.NOTIFY_DEBUG = false;
+		Debug$.MODULE$.NOTIFY_DEBUG_$eq(false);
 		// show fixing of cells in Debug mode
-		Debug.FIXED_DEBUG = false;
+		Debug$.MODULE$.FIXED_DEBUG_$eq(false);
 		// show solving algorithms in Debug mode
-		Debug.SOLVING_DEBUG = false;
+		Debug$.MODULE$.SOLVING_DEBUG_$eq(false);
 		// show deletion of values in Debug mode
-		Debug.DELETE_DEBUG = false;
+		Debug$.MODULE$.DELETE_DEBUG_$eq(false);
 	}
 	
 	@Test
@@ -40,10 +40,10 @@ public class TestSudokuSolver {
 			"..297..6." +
 			".9......." ;
 
-		judoku.SodukoSolver soso = new judoku.SodukoSolver(sampleGrid);
+		scudoku.SudokuSolver soso = new scudoku.SudokuSolver(sampleGrid);
 		assertTrue (soso.solve());
 		assertTrue (soso.isSolved());
-		assertEquals (2, soso.getNumSolveSteps());
+		assertEquals (3, soso.numSolveSteps());		// funny enough but Java needs 2 solve steps while Scala needs 3!
 	}
 
 	@Test
@@ -59,7 +59,7 @@ public class TestSudokuSolver {
 			"186457923" +
 			"947326581";
 
-		judoku.SodukoSolver soso = new judoku.SodukoSolver(sampleGrid);
+		scudoku.SudokuSolver soso = new scudoku.SudokuSolver(sampleGrid);
 		assertTrue (soso.isSolved());
 		assertTrue (soso.solve());
 		assertTrue (soso.isSolved());
@@ -78,10 +78,10 @@ public class TestSudokuSolver {
 				"9....58.." +
 				"4....8..6" ;
 
-		judoku.SodukoSolver soso = new judoku.SodukoSolver(sampleGrid);
+		scudoku.SudokuSolver soso = new scudoku.SudokuSolver(sampleGrid);
 		assertTrue (soso.solve());
 		assertTrue (soso.isSolved());
-		assertEquals (3, soso.getNumSolveSteps());
+		assertEquals (3, soso.numSolveSteps());
 	}
 
 	@Test
@@ -97,10 +97,10 @@ public class TestSudokuSolver {
 				".2.5.839." +
 				"7........" ;
 
-		judoku.SodukoSolver soso = new judoku.SodukoSolver(sampleGrid);
+		scudoku.SudokuSolver soso = new scudoku.SudokuSolver(sampleGrid);
 		assertTrue (soso.solve());
 		assertTrue (soso.isSolved());
-		assertEquals (4, soso.getNumSolveSteps());
+		assertEquals (4, soso.numSolveSteps());
 	}
 
 	@Test
@@ -116,10 +116,10 @@ public class TestSudokuSolver {
 				"..3...1.." +
 				"..2..9..." ;
 
-		judoku.SodukoSolver soso = new judoku.SodukoSolver(sampleGrid);
+		scudoku.SudokuSolver soso = new scudoku.SudokuSolver(sampleGrid);
 		assertTrue (soso.solve());
 		assertTrue (soso.isSolved());
-		assertEquals (4, soso.getNumSolveSteps());
+		assertEquals (4, soso.numSolveSteps());
 	}
 
 	@Test
@@ -135,10 +135,10 @@ public class TestSudokuSolver {
 				".9.3..8.." +
 				"5..2...7." ;
 
-		judoku.SodukoSolver soso = new judoku.SodukoSolver(sampleGrid);
+		scudoku.SudokuSolver soso = new scudoku.SudokuSolver(sampleGrid);
 		assertTrue (soso.solve());
 		assertTrue (soso.isSolved());
-		assertEquals (3, soso.getNumSolveSteps());
+		assertEquals (3, soso.numSolveSteps());
 	}
 
 	@Test
@@ -154,10 +154,10 @@ public class TestSudokuSolver {
 				".8..5.9.." +
 				".4...6..1" ;
 
-		judoku.SodukoSolver soso = new judoku.SodukoSolver(sampleGrid);
+		scudoku.SudokuSolver soso = new scudoku.SudokuSolver(sampleGrid);
 		assertTrue (soso.solve());
 		assertTrue (soso.isSolved());
-		assertEquals (6, soso.getNumSolveSteps());
+		assertEquals (6, soso.numSolveSteps());
 	}
 
 	@Test
@@ -173,7 +173,7 @@ public class TestSudokuSolver {
 				"..297..6." +
 				".9......." ;
 
-		assertFalse (new judoku.SodukoSolver(sampleGrid).solve());
+		assertFalse (new scudoku.SudokuSolver(sampleGrid).solve());
 	}
 
 	@Test
@@ -189,7 +189,7 @@ public class TestSudokuSolver {
 				"........." +
 				".........";
 
-		assertFalse (new judoku.SodukoSolver(sampleGrid).solve());
+		assertFalse (new scudoku.SudokuSolver(sampleGrid).solve());
 	}
 	
 	@Test
@@ -206,7 +206,7 @@ public class TestSudokuSolver {
 				"........0";
 		
 		try {
-			new judoku.SodukoSolver(sampleGrid).solve();
+			new scudoku.SudokuSolver(sampleGrid).solve();
 			fail("RuntimeException expected");
 		}
 		catch (RuntimeException rex) {
@@ -222,7 +222,7 @@ public class TestSudokuSolver {
 				".........";
 		
 		try {
-			new judoku.SodukoSolver(sampleGrid).solve();
+			new scudoku.SudokuSolver(sampleGrid).solve();
 			fail("RuntimeException expected");
 		}
 		catch (RuntimeException rex) {
@@ -244,11 +244,11 @@ public class TestSudokuSolver {
 				".7......." ;
 
 		try {
-			assertTrue (new judoku.SodukoSolver(sampleGrid).solve());
+			assertTrue (new scudoku.SudokuSolver(sampleGrid).solve());
 			fail("RuntimeException expected");
 		}
 		catch (RuntimeException rex) {
-			assertTrue(rex.getMessage().contains("duplicate"));
+			assertTrue(rex.getMessage().contains("consistency check failed"));
 		}
 	}
 }

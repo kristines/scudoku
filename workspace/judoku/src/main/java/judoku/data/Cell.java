@@ -58,19 +58,9 @@ public class Cell extends Observable {
 
 	// -----------------------------------------------------------------------------------------------
 
-	// get the cells value (if fixed)
+	// get the cell's value (if fixed)
 	public OneToNine getValue() {
 		return value;
-	}
-
-	// get the list of potential values (never null, but might be empty)
-	public Set<OneToNine> getPotentialValues() {
-		return potentialValues;
-	}
-
-	// set the list of potential values (never null, but might be empty)
-	public void setPotentialValues(Set<OneToNine> potentialValues) {
-		this.potentialValues = potentialValues;
 	}
 
 	// fix value and then notify all observers (ie line, block, column of the cell)
@@ -85,14 +75,19 @@ public class Cell extends Observable {
 		setChanged();
 		notifyObservers();
 	}
+	
+	// get the list of potential values (never null, but might be empty)
+	public Set<OneToNine> getPotentialValues() {
+		return potentialValues;
+	}
 
 	// delete a value from the list of potential values
-	public void deleteValue(OneToNine deleteValue) {
+	public void deletePotentialValue(OneToNine valueToDelete) {
 		if (isFix()) return;
 		if (Debug.DELETE_DEBUG) {
-			System.out.println("Delete value "+ deleteValue + " from cell " + id);
+			System.out.println("Delete value "+ valueToDelete + " from cell " + id);
 		}
-		this.getPotentialValues().remove(deleteValue);
+		this.getPotentialValues().remove(valueToDelete);
 	}
 
 	// -----------------------------------------------------------------------------------------------
@@ -120,7 +115,7 @@ public class Cell extends Observable {
 			buf.append(" " + id);
 			if (isFix()) {
 				buf.append("[");
-				buf.append("........");
+				buf.append("________");
 				buf.append(value.toString());
 				buf.append("]");
 			}

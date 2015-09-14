@@ -25,7 +25,7 @@ public class SodukoSolver {
         List<IConsistencyCheck> checkers = collectCheckingAlgorithms();
         solveLoop(grid, solvers, checkers);
         
-        return grid.isSolved();
+        return isSolved();
 	}
 
     public boolean isSolved() {
@@ -82,8 +82,7 @@ public class SodukoSolver {
 				}
 
 				// do it
-				boolean solved = solver.tryToSolve(grid);
-				if (solved) break; // we are done - so no need to solve anything more
+				if (solver.tryToSolve(grid)) break; // we are done - so no need to solve anything more
 
 				// any changes?
 				if (grid.numOfCellsFixed() != oldFixedCounter) {
@@ -133,7 +132,7 @@ public class SodukoSolver {
         	".....9..." +
         	".8..5.9.." +
         	".4...6..1" ;
-
+       
 		SodukoSolver sodukoSolver = new SodukoSolver(sampleGrid);
 		
 		sodukoSolver.solve();

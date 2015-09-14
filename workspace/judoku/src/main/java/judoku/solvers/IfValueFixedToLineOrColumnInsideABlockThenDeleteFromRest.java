@@ -31,16 +31,19 @@ public class IfValueFixedToLineOrColumnInsideABlockThenDeleteFromRest implements
 		return grid.isSolved();
 	}
 
-	// delete the potential value in all cells inside its line/column (but outside of its block)
-	private void deleteValueInRestOutsideBlock(Block block, Cell cell, OneToNine potentialValue, List<Cell> restOfCells) {
-		Block theCellsBlock = cell.getBlock();
-		if (theCellsBlock != block) throw new RuntimeException("should never happen"); // paranoia
-
-		for (Cell otherCell: restOfCells) {
-			if (!theCellsBlock.contains(otherCell)) {
-				otherCell.deleteValue(potentialValue);
+	private boolean checkIfValueIsOnlyInsideTheCellsLine(Block block, Cell cell, OneToNine value) {
+		// check all cells in the block
+		for (Cell otherCellInBlock: block.getCells()) {
+			// only look at cells which are inside the same block but are in another line
+			if (cell.getLine() != otherCellInBlock.getLine()) {
+				// if one of these cells contains the potential value , then we are done
+				if (otherCellInBlock.getPotentialValues().contains(value)) {
+					return false;
+				}
 			}
 		}
+
+		return true;
 	}
 
 	private boolean checkIfValueIsOnlyInsideTheCellsColumn(Block block, Cell cell, OneToNine value) {
@@ -58,18 +61,16 @@ public class IfValueFixedToLineOrColumnInsideABlockThenDeleteFromRest implements
 		return true;
 	}
 
-	private boolean checkIfValueIsOnlyInsideTheCellsLine(Block block, Cell cell, OneToNine value) {
-		// check all cells in the block
-		for (Cell otherCellInBlock: block.getCells()) {
-			// only look at cells which are inside the same block but are in another line
-			if (cell.getLine() != otherCellInBlock.getLine()) {
-				// if one of these cells contains the potential value , then we are done
-				if (otherCellInBlock.getPotentialValues().contains(value)) {
-					return false;
-				}
+
+	// delete the potential value in all cells inside its line/column (but outside of its block)
+	private void deleteValueInRestOutsideBlock(Block block, Cell cell, OneToNine potentialValue, List<Cell> restOfCells) {
+		Block theCellsBlock = cell.getBlock();
+		if (theCellsBlock != block) throw new RuntimeException("should never happen"); // paranoia
+
+		for (Cell otherCell: restOfCells) {
+			if (!theCellsBlock.contains(otherCell)) {
+				otherCell.deletePotentialValue(potentialValue);
 			}
 		}
-
-		return true;
 	}
 }
