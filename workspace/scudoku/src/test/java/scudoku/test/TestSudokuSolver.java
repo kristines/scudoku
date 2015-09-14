@@ -40,10 +40,10 @@ public class TestSudokuSolver {
 			"..297..6." +
 			".9......." ;
 
-		scudoku.SudokuSolver soso = new scudoku.SudokuSolver(sampleGrid);
-		assertTrue (soso.solve());
-		assertTrue (soso.isSolved());
-		assertEquals (3, soso.numSolveSteps());		// funny enough but Java needs 2 solve steps while Scala needs 3!
+		scudoku.SudokuSolver suso = new scudoku.SudokuSolver(sampleGrid);
+		assertTrue (suso.solve());
+		assertTrue (suso.isSolved());
+		assertEquals (3, suso.numSolveSteps());		// funny enough but Java needs 2 solve steps while Scala needs 3!
 	}
 
 	@Test
@@ -59,10 +59,10 @@ public class TestSudokuSolver {
 			"186457923" +
 			"947326581";
 
-		scudoku.SudokuSolver soso = new scudoku.SudokuSolver(sampleGrid);
-		assertTrue (soso.isSolved());
-		assertTrue (soso.solve());
-		assertTrue (soso.isSolved());
+		scudoku.SudokuSolver suso = new scudoku.SudokuSolver(sampleGrid);
+		assertTrue (suso.isSolved());
+		assertTrue (suso.solve());
+		assertTrue (suso.isSolved());
 	}
 
 	@Test
@@ -78,10 +78,10 @@ public class TestSudokuSolver {
 				"9....58.." +
 				"4....8..6" ;
 
-		scudoku.SudokuSolver soso = new scudoku.SudokuSolver(sampleGrid);
-		assertTrue (soso.solve());
-		assertTrue (soso.isSolved());
-		assertEquals (3, soso.numSolveSteps());
+		scudoku.SudokuSolver suso = new scudoku.SudokuSolver(sampleGrid);
+		assertTrue (suso.solve());
+		assertTrue (suso.isSolved());
+		assertEquals (3, suso.numSolveSteps());
 	}
 
 	@Test
@@ -97,10 +97,10 @@ public class TestSudokuSolver {
 				".2.5.839." +
 				"7........" ;
 
-		scudoku.SudokuSolver soso = new scudoku.SudokuSolver(sampleGrid);
-		assertTrue (soso.solve());
-		assertTrue (soso.isSolved());
-		assertEquals (4, soso.numSolveSteps());
+		scudoku.SudokuSolver suso = new scudoku.SudokuSolver(sampleGrid);
+		assertTrue (suso.solve());
+		assertTrue (suso.isSolved());
+		assertEquals (4, suso.numSolveSteps());
 	}
 
 	@Test
@@ -116,10 +116,10 @@ public class TestSudokuSolver {
 				"..3...1.." +
 				"..2..9..." ;
 
-		scudoku.SudokuSolver soso = new scudoku.SudokuSolver(sampleGrid);
-		assertTrue (soso.solve());
-		assertTrue (soso.isSolved());
-		assertEquals (4, soso.numSolveSteps());
+		scudoku.SudokuSolver suso = new scudoku.SudokuSolver(sampleGrid);
+		assertTrue (suso.solve());
+		assertTrue (suso.isSolved());
+		assertEquals (4, suso.numSolveSteps());
 	}
 
 	@Test
@@ -135,10 +135,10 @@ public class TestSudokuSolver {
 				".9.3..8.." +
 				"5..2...7." ;
 
-		scudoku.SudokuSolver soso = new scudoku.SudokuSolver(sampleGrid);
-		assertTrue (soso.solve());
-		assertTrue (soso.isSolved());
-		assertEquals (3, soso.numSolveSteps());
+		scudoku.SudokuSolver suso = new scudoku.SudokuSolver(sampleGrid);
+		assertTrue (suso.solve());
+		assertTrue (suso.isSolved());
+		assertEquals (3, suso.numSolveSteps());
 	}
 
 	@Test
@@ -154,10 +154,10 @@ public class TestSudokuSolver {
 				".8..5.9.." +
 				".4...6..1" ;
 
-		scudoku.SudokuSolver soso = new scudoku.SudokuSolver(sampleGrid);
-		assertTrue (soso.solve());
-		assertTrue (soso.isSolved());
-		assertEquals (6, soso.numSolveSteps());
+		scudoku.SudokuSolver suso = new scudoku.SudokuSolver(sampleGrid);
+		assertTrue (suso.solve());
+		assertTrue (suso.isSolved());
+		assertEquals (6, suso.numSolveSteps());
 	}
 
 	@Test
