@@ -5,7 +5,7 @@
 2) Scala port is in (Eclipse) project ```scudoku```. Port is 90% identical to the Java version except for some optimizations and minor refactorings. Algorithms are Scala-style!
 
 ## Main class
-Main class is ```scudoku.SudokuSolver``` which calls various solving algorithms one after another until grid does not change anymore.
+Main class is ```scudoku.SudokuSolver``` which calls various solving algorithms one after another until the grid does not change anymore.
 Besides the SudokuSolver also calls the consistency checks to find out if we ran into an inconsistent situation.
 
 ## Data structures
